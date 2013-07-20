@@ -1,4 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+?>
+
+<?php
 /**
  * The base configurations of the WordPress.
  *
@@ -14,18 +20,26 @@
  * @package WordPress
  */
 
+define('WEB_SUB_DIRECTORY', '/test_wordpress');
+define('WEB_PORT_WITH_COLON', ':8888');
+
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . WEB_PORT_WITH_COLON . WEB_SUB_DIRECTORY . '/wordpress');
+define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] . WEB_PORT_WITH_COLON . WEB_SUB_DIRECTORY . '/');
+define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . WEB_SUB_DIRECTORY . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . WEB_PORT_WITH_COLON . WEB_SUB_DIRECTORY . '/wp-content');
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+define('DB_NAME', 'test_wordpress');
 
 /** MySQL database username */
-define('DB_USER', 'username_here');
+define('DB_USER', 'wordpress');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+define('DB_PASSWORD', 'wordpress');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'localhost:8889');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
